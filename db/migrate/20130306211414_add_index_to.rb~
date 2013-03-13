@@ -1,0 +1,7 @@
+class AddIndexToUsersEmail < ActiveRecord::Migration
+  def change
+#puts index on email and forces it to be unique.
+#this is the database check of a unique email address
+    add_index :users, :email, unique: true
+  end
+end
