@@ -2,6 +2,11 @@ SampleApp::Application.routes.draw do
 
 	# got rid of "users/new" because describing users as a resource gives us access to all the URLs of the REST architecture or to CRED
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   root to: 'static_pages#home'
   match '/signup',  to: 'users#new'

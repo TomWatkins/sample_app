@@ -1,5 +1,7 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
+
+	# got rid of "users/new" because describing users as a resource gives us access to all the URLs of the REST architecture or to CRED
+  resources :users
 
   root to: 'static_pages#home'
   match '/signup',  to: 'users#new'
